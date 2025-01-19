@@ -8,22 +8,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--border-color);
+  border-image: url('public/images/dropdown-border.png') 2 round;
+  border-image-width: 7px;
   background-color: var(--bg-color);
   border-radius: 5px;
   padding: 20px;
   margin: auto;
   width: 20%;
-  min-width: 220px;
+  min-width: 300px;
   aspect-ratio: 1/1;
   cursor: pointer;
   transition: all 0.5s ease;
   backdrop-filter: blur(10px);
   box-shadow: var(--border-color) 0px 0px 10px;
-
 }
 
-.card img {
+.imgChamp {
   width: 60%;
   height: 60%;
   object-fit: cover;
@@ -38,7 +38,7 @@
   width: 55% !important;
   height: 55% !important;
   z-index: -1;
-  filter: blur(20px);
+  filter: blur(30px);
 }
 
 .card:hover {
@@ -53,4 +53,22 @@
   margin-top: 30px;
   font-weight: 800;
   text-shadow: white 1px 1px 20px;
+}
+
+.rerollComponent {
+  position: absolute;
+  width: 80%;
+  bottom: -50px;
+}
+
+.rerollButton {
+  width: 100%;
+  cursor: pointer;
+}
+
+.rerollDice {
+  position: absolute;
+  top: 25%;
+  left: calc(50% - 1.5em) !important;
+  width: 3em;
 }

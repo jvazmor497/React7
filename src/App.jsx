@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const champions = [
   "Aatrox",
   "Ahri",
@@ -161,6 +163,19 @@ const champions = [
 ];
 
 function App() {
+  // Cachea todas las imagenes en el navegador para que carguen más rapido cuando sea necesario
+  useEffect(() => {
+    champions.forEach((champ) => {
+      const img = new Image();
+      if (champ === "Viktor") {
+        img.src =
+          "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/viktor/skins/base/images/viktor_splash_tile_0.viktorvgu.jpg";
+      } else {
+        img.src = `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/champion/${champ}.png`;
+      }
+    });
+  }, []);
+
   return <ChampionCard />;
 }
 
@@ -169,24 +184,20 @@ function ChampionCard() {
     champions[Math.floor(Math.random() * champions.length)]
   );
 
-  // Cachea todas las imagenes en el navegador para que carguen más rapido cuando sea necesario
-  useEffect(() => {
-    champions.forEach((champ) => {
-      const img = new Image();
-      img.src = `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/champion/${champ}.png`;
-    });
-  }, []);
+  const [rerollButtonimage, setRerollButtonimage] = useState(
+    `${baseUrl}images/ui/button-lockin.png`
+  );
+  const [rerollDiceimage, setRerollDiceimage] = useState(`${baseUrl}images/ui/dice.png`);
 
-  // const champ_image =
-  //   "https://ddragon.leagueoflegends.com/cdn/13.10.1/img/champion/" +
-  //   champion +
-  //   ".png";
-  const champ_image = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/${champion.toLowerCase()}/skins/base/images/${champion.toLowerCase()}_splash_tile_0.jpg`;
-
-  console.log(champ_image);
+  let champ_image = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/${champion.toLowerCase()}/skins/base/images/${champion.toLowerCase()}_splash_tile_0.jpg`;
 
   if (champion === "MonkeyKing") {
     setChampion("Wukong");
+  }
+
+  if (champion === "Viktor") {
+    champ_image =
+      "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/viktor/skins/base/images/viktor_splash_tile_0.viktorvgu.jpg";
   }
 
   return (
@@ -195,10 +206,22 @@ function ChampionCard() {
       onClick={() =>
         setChampion(champions[Math.floor(Math.random() * champions.length)])
       }
+      onMouseEnter={() => {
+        setRerollButtonimage(`${baseUrl}images/ui/button-lockin-hover.png`);
+        setRerollDiceimage(`${baseUrl}images/ui/dice-hover.png`);
+      }}
+      onMouseLeave={() => {
+        setRerollButtonimage(`${baseUrl}images/ui/button-lockin.png`);
+        setRerollDiceimage(`${baseUrl}images/ui/dice-hover.png`);
+      }}
     >
-      <img src={champ_image} alt={champion} />
-      <img src={champ_image} alt={champion} className="imgblur" />
+      <img className="imgChamp" src={champ_image} alt={champion} />
+      <img className="imgblur" src={champ_image} alt={champion} />
       <h2>{champion}</h2>
+      <div className="rerollComponent">
+        <img className="rerollButton" src={rerollButtonimage} alt="button" />
+        <img className="rerollDice" src={rerollDiceimage} alt="dice" />
+      </div>
     </div>
   );
 }
