@@ -1,8 +1,16 @@
-# React + Vite
+# Practica 7
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En esta práctica trabajaremos los siguientes disparadores de eventos de React:
 
-Currently, two official plugins are available:
+`onClick`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+y se basará en los siguientes puntos de la documentación:
+
+- ["Responder a eventos"]()
+- ["Memoria de una componente"]()
+
+`onClick`-> Deéis crear una  tarjeta como la del ejemplo, la información en cada tarjeta será a opinión personal. Se pretende que cuando pulses el botón se visualice la nueva información tal y como en el ejemplo.
+
+La solución que hayas implementado con react deberás implementarla con JS Nativo.
+
+[ ▶️ EJEMPLO](https://drive.google.com/file/d/1fqIqDyS03hJdn0pfapbUR15__JDGCt1T/view?usp=sharing)

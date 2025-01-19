@@ -161,16 +161,10 @@ const champions = [
 ];
 
 function App() {
-  return (
-    <>
-      <h1 style={{ textAlign: "center" }}>Random League of Legends Champion Generator</h1>
-      <ChampionCard />
-    </>
-  );
+  return <ChampionCard />;
 }
 
 function ChampionCard() {
-
   const [champion, setChampion] = useState(
     champions[Math.floor(Math.random() * champions.length)]
   );
