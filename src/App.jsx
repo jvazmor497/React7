@@ -146,7 +146,7 @@ const champions = [
   "Vladimir",
   "Volibear",
   "Warwick",
-  "MonkeyKing",
+  "Wukong",
   "Xayah",
   "Xerath",
   "XinZhao",
@@ -170,6 +170,9 @@ function App() {
       if (champ === "Viktor") {
         img.src =
           "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/viktor/skins/base/images/viktor_splash_tile_0.viktorvgu.jpg";
+      } else if (champ === "Wukong") {
+        img.src =
+          "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/monkeyking/skins/base/images/monkeyking_splash_tile_0.jpg";
       } else {
         img.src = `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/champion/${champ}.png`;
       }
@@ -187,12 +190,15 @@ function ChampionCard() {
   const [rerollButtonimage, setRerollButtonimage] = useState(
     `${baseUrl}images/ui/button-lockin.png`
   );
-  const [rerollDiceimage, setRerollDiceimage] = useState(`${baseUrl}images/ui/dice.png`);
+  const [rerollDiceimage, setRerollDiceimage] = useState(
+    `${baseUrl}images/ui/dice.png`
+  );
 
   let champ_image = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/${champion.toLowerCase()}/skins/base/images/${champion.toLowerCase()}_splash_tile_0.jpg`;
 
-  if (champion === "MonkeyKing") {
-    setChampion("Wukong");
+  if (champion === "Wukong") {
+    champ_image =
+      "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/monkeyking/skins/base/images/monkeyking_splash_tile_0.jpg";
   }
 
   if (champion === "Viktor") {
