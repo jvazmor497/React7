@@ -144,7 +144,7 @@ const champions = [
   "Vladimir",
   "Volibear",
   "Warwick",
-  "Wukong",
+  "MonkeyKing",
   "Xayah",
   "Xerath",
   "XinZhao",
@@ -181,6 +181,10 @@ function ChampionCard() {
     "https://ddragon.leagueoflegends.com/cdn/13.10.1/img/champion/" +
     champion +
     ".png";
+
+    if (champion === "MonkeyKing") {
+      setChampion("Wukong");
+    }
 
   return (
     <div
