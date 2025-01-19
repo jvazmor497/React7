@@ -177,14 +177,17 @@ function ChampionCard() {
     });
   }, []);
 
-  const champ_image =
-    "https://ddragon.leagueoflegends.com/cdn/13.10.1/img/champion/" +
-    champion +
-    ".png";
+  // const champ_image =
+  //   "https://ddragon.leagueoflegends.com/cdn/13.10.1/img/champion/" +
+  //   champion +
+  //   ".png";
+  const champ_image = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/${champion.toLowerCase()}/skins/base/images/${champion.toLowerCase()}_splash_tile_0.jpg`;
 
-    if (champion === "MonkeyKing") {
-      setChampion("Wukong");
-    }
+  console.log(champ_image);
+
+  if (champion === "MonkeyKing") {
+    setChampion("Wukong");
+  }
 
   return (
     <div
@@ -194,6 +197,7 @@ function ChampionCard() {
       }
     >
       <img src={champ_image} alt={champion} />
+      <img src={champ_image} alt={champion} className="imgblur" />
       <h2>{champion}</h2>
     </div>
   );

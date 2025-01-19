@@ -6,4 +6,8 @@ import process from 'process'
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/React7/' : '',
   plugins: [react()],
+  server: {
+    host: true,
+    port: 3000,
+  },
 })
