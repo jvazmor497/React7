@@ -206,6 +206,11 @@ function ChampionCard() {
       "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/viktor/skins/base/images/viktor_splash_tile_0.viktorvgu.jpg";
   }
 
+  if (champion === "Teemo") {
+    champ_image =
+      "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/teemo/skins/base/images/teemo_splash_tile_0.asu_teemo.jpg";
+  }
+
   return (
     <div
       className="card"
